@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>カフェインと睡眠予測</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      background-color: #f8f8f8;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>カフェイン影響予測アプリ</h1>
+  
+  <label for="caffeine">カフェイン摂取量 (mg):</label>
+  <input type="number" id="caffeine" placeholder="例: 150" />
+
+  <label for="age">年齢:</label>
+  <input type="number" id="age" placeholder="例: 30" />
+
+  <label for="weight">体重 (kg):</label>
+  <input type="number" id="weight" placeholder="例: 60" />
+
+  <button onclick="predictSleepImpact()">予測する</button>
+
+  <div id="result"></div>
+
+  <script>
+    function predictSleepImpact() {
+      const caffeine = parseFloat(document.getElementById('caffeine').value);
+      const age = parseFloat(document.getElementById('age').value);
+      const weight = parseFloat(document.getElementById('weight').value);
+      const resultDiv = document.getElementById('result');
+
+      if (isNaN(caffeine) || isNaN(age) || isNaN(weight)) {
+        resultDiv.innerHTML = "すべての項目を正しく入力してください。";
+        return;
+      }
+
+      // 仮のロジック：体重と年齢で代謝スピードを調整し、半減期から寝れるまでの時間を推定
+      const halfLife = 5; // カフェインの平均半減期（時間）
+      const metabolismFactor = (70 / weight) * (1 + (50 - age) * 0.01);
+      const sleepDelay = halfLife * Math.log2(caffeine / 50) * metabolismFactor;
+
+      const roundedDelay = Math.max(0, sleepDelay.toFixed(1));
+      resultDiv.innerHTML = `おおよそ ${roundedDelay} 時間後に眠れる可能性があります。`;
+    }
+  </script>
+</body>
+</html>
