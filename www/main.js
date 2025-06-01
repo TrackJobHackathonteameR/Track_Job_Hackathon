@@ -86,7 +86,6 @@ function resetForm() {
   document.getElementById('energy').value = 0;
   document.getElementById('customName').value = '';
   document.getElementById('customCaffeine').value = '';
-  document.getElementById('customCount').value = '';
   document.getElementById('customDrinkList').innerHTML = '';
   customDrinks = [];
   totalCaffeine = 0;
@@ -97,6 +96,10 @@ function resetForm() {
 
   document.body.classList.remove("flash-warning");
   document.body.style.background = getBackgroundColorByCaffeine(0);
+
+  renderCustomDrinks();     // カスタム表示をちゃんと再描画（空になる）
+  calculateCaffeine();      // カフェイン量を0に更新
+
 }
 
 function changeDrinkAmount(id, delta) {
@@ -104,6 +107,8 @@ function changeDrinkAmount(id, delta) {
   let current = parseInt(input.value) || 0;
   current = Math.max(0, current + delta); // マイナスにならないように
   input.value = current;
+
+  calculateCaffeine();
 }
 
 function renderCustomDrinks() {
