@@ -85,6 +85,8 @@ fieldset label {
   font-size: 1rem;
 }
 
+/* 年齢、体重、総摂取量フォーム用スタイル */
+
 @keyframes flashWarning {
   0%, 100% {
     background-color: hsl(45, 100%, 95%);
