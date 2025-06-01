@@ -119,10 +119,10 @@ function renderCustomDrinks() {
     const item = document.createElement('div');
     item.className = 'drink-row';
     item.innerHTML = `
-      <span>${drink.name}（${drink.caffeinePer}mg/杯）</span>
-      <button onclick="updateCustomCount(${index}, -1)">−</button>
-      <input type="number" id="energy" value=${drink.count} readonly />
-      <button onclick="updateCustomCount(${index}, 1)">＋</button>
+      <label>${drink.name}（${drink.caffeinePer}mg/杯）</label>
+      <button type="button onclick="updateCustomCount(${index}, -1)">−</button>
+      <input type="number" id=${drink.id} value=${drink.count} readonly />
+      <button type="button" onclick="updateCustomCount(${index}, 1)">＋</button>
     `;
 
     list.appendChild(item);
