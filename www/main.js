@@ -53,14 +53,6 @@ function predictSleepImpact() {
       } else {
       document.body.classList.remove("flash-warning");
       }
-      function getBackgroundColorByCaffeine(caffeine) {
-      // カフェイン量 0〜400mg に対して、暗→明 で変化（上限を400に固定）
-        const capped = Math.min(caffeine, 400);
-        const brightness = Math.floor(30 + (capped / 400) * 70); // 30%〜100%まで変化
-        return `hsl(45, 100%, ${brightness}%)`; // 明るさだけ変化、色味は黄系
-      }
-
-
       if (isNaN(caffeine) || isNaN(age) || isNaN(weight)) {
         resultDiv.innerHTML = "すべての項目を正しく入力してください。";
         return;
@@ -75,3 +67,15 @@ function predictSleepImpact() {
       resultDiv.innerHTML = `おおよそ ${roundedDelay} 時間後に眠れる可能性があります。`;
 }
 
+function getBackgroundColorByCaffeine(caffeine) {
+      // カフェイン量 0〜400mg に対して、暗→明 で変化（上限を400に固定）
+      const capped = Math.min(caffeine, 400);
+      const brightness = Math.floor(30 + (capped / 400) * 70); // 30%〜100%まで変化
+      return `hsl(45, 100%, ${brightness}%)`; // 明るさだけ変化、色味は黄系
+}
+
+
+// 初期状態：カフェイン量0mgの背景
+window.onload = function () {
+  document.body.style.background = getBackgroundColorByCaffeine(0);
+};
