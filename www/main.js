@@ -73,11 +73,11 @@ function getBackgroundColorByCaffeine(caffeine) {
       return `hsl(45, 100%, ${brightness}%)`; // 明るさだけ変化、色味は黄系
 }
 
-
 // 初期状態：カフェイン量0mgの背景
-window.onload = function () {
-  document.body.style.background = getBackgroundColorByCaffeine(0);
-};
+//window.onload = function () {
+//  document.body.style.background = getBackgroundColorByCaffeine(0);
+//};
+
 
 //リセットボタンの動作
 function resetForm() {
