@@ -108,8 +108,8 @@ fieldset label {
   min-width: 32px;
 }
 /* スピンボタン削除 */
-fieldset input[type=number]::-webkit-outer-spin-button,
-fieldset input[type=number]::-webkit-inner-spin-button {
+input[type=number][readonly]::-webkit-outer-spin-button,
+input[type=number][readonly]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
