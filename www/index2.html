@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>酩酊状態</title>
+   <link rel="icon" href="favicon.ico">
+   <link rel="stylesheet" href="style.css">
+   <script src="script.js"></script>
+</head>
+<body class="OverallBackground">
+   <div class="sake-container">
+      <h1><span data-ruby="めいてい">酩酊状態</span>確認しよう！</h1>
+   </div>
+
+   <div class="weight-container">
+       <h2>体重を教えて！</h2>
+       <div class="input-group">
+         <input type="number" id="weight" placeholder="例: 60" min="0" />
+         <p>kg</p>
+       </div>
+   </div>
+
+   <h2>飲んだお酒を選択して！</h2>
+   <div id="menu">
+
+      <div class="sake" id="sake">
+         <div id="edit">
+            <input type="text" id="sakename" placeholder="お酒の名前" minlength="1" />
+            <div id="edit_number_wrap">
+               <div id="edit_dosu_wrap">
+                  <input type="number" id="dosu" placeholder="度数" min="0" />
+                  <p>％</p>
+               </div>
+               <div id="edit_dosu_wrap">
+                  <input type="number" id="ryou" placeholder="単位量" min="0" step="10" />
+                  <p>ml</p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+   <div id="line"></div>
+
+   <h2>あなたの状態 🍺</h2>
+   <div id="result">
+      <div id="result_right">
+         <p>合計摂取量</p>
+         <div id="gokei">0ml</div>
+         <p>純アルコール量</p>
+         <div id="sou">0g</div>
+         <p>アルコール血中濃度</p>
+         <div id="noudo">0％</div>
+      </div>
+   </div>
+   <div>
+      <span>お酒が抜けるまでの時間</span>
+      <div id="jikan">0時間</div>
+   </div>
+
+   <h5 class="footer">
+      ⚠️ この推定値は単純な計算に基づくものであり、実際の状況は個々の体質、体調、経過時間によって異なる可能性があります<br>
+      <p>※ また、サイトが少し見えづらいのは……</p>
+   </h5>
+</body>
+</html>
