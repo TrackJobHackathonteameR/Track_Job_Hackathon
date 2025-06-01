@@ -85,3 +85,16 @@ fieldset label {
   font-size: 1rem;
 }
 
+@keyframes flashWarning {
+  0%, 100% {
+    background-color: hsl(45, 100%, 95%);
+  }
+  50% {
+    background-color: hsl(0, 100%, 100%);
+  }
+}
+
+.flash-warning {
+  animation: flashWarning 0.5s infinite;
+}
+

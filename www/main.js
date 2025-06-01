@@ -45,6 +45,22 @@ function predictSleepImpact() {
       const weight = parseFloat(document.getElementById('weight').value);
       const resultDiv = document.getElementById('result');
 
+      // 背景色をカフェイン量に応じて変更
+      const bgColor = getBackgroundColorByCaffeine(caffeine);
+      document.body.style.background = bgColor;
+      if (caffeine >= 400) {
+      document.body.classList.add("flash-warning");
+      } else {
+      document.body.classList.remove("flash-warning");
+      }
+      function getBackgroundColorByCaffeine(caffeine) {
+      // カフェイン量 0〜400mg に対して、暗→明 で変化（上限を400に固定）
+        const capped = Math.min(caffeine, 400);
+        const brightness = Math.floor(30 + (capped / 400) * 70); // 30%〜100%まで変化
+        return `hsl(45, 100%, ${brightness}%)`; // 明るさだけ変化、色味は黄系
+      }
+
+
       if (isNaN(caffeine) || isNaN(age) || isNaN(weight)) {
         resultDiv.innerHTML = "すべての項目を正しく入力してください。";
         return;
