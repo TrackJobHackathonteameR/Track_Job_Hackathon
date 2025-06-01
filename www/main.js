@@ -121,9 +121,9 @@ function renderCustomDrinks() {
     item.innerHTML = `
       <label>${drink.name}（${drink.caffeinePer}mg/杯）</label>
       <div class="controls">
-      <button type="button onclick="updateCustomCount(${index}, -1)">−</button>
-      <input type="number" id=${drink.id} value=${drink.count} readonly />
-      <button type="button" onclick="updateCustomCount(${index}, 1)">＋</button>
+        <button type="button" onclick="updateCustomCount(${index}, -1)">−</button>
+        <input type="number" id=${drink.id} value=${drink.count} readonly />
+        <button type="button" onclick="updateCustomCount(${index}, 1)">＋</button>
       </div>
     `;
 
