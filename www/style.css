@@ -1,7 +1,7 @@
 body {
 	font-family: Arial, sans-serif;
 	padding: 2rem;
-	max-width: 600px;
+	max-width: 750px;
 	margin: auto;
 	background-color: #f8f8f8;
 }
@@ -13,7 +13,7 @@ label {
 	margin-top: 1rem;
 }
 input {
-	width: 100%;
+	width: 97%;
 	padding: 0.5rem;
 	font-size: 1rem;
 }
