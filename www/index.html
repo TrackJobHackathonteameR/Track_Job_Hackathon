@@ -17,7 +17,7 @@
     <label>エナジードリンク（80mg/缶）:<input type="number" id="energy" value="0" /></label>
   </div>
 
-  <!-- ✅ 追加飲み物の入力 -->
+  <!-- 追加飲み物の入力 -->
   <div class="custom-drink-form">
     <input type="text" id="customName" class="custom-input" placeholder="飲み物名（例：緑茶）" />
     <input type="number" id="customCaffeine" class="custom-input" placeholder="1杯のカフェイン量 (mg)" />
@@ -39,6 +39,7 @@
   <input type="number" id="weight" placeholder="例: 60" />
 
   <button onclick="predictSleepImpact()">予測する</button>
+  <button onclick="resetForm()">リセットする</button>
 
   <div id="result"></div>
 

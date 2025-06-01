@@ -1,4 +1,5 @@
 let customDrinks = [];
+totalCaffeine = 0;
 
 function addCustomDrink() {
   const name = document.getElementById('customName').value;
@@ -29,14 +30,14 @@ function calculateCaffeine() {
   const tea = parseInt(document.getElementById('tea').value) || 0;
   const energy = parseInt(document.getElementById('energy').value) || 0;
 
-  let total = (coffee * 90) + (tea * 45) + (energy * 80);
+  let totalCaffeine = (coffee * 90) + (tea * 45) + (energy * 80);
 
   // カスタム飲料の分を加算
   for (const drink of customDrinks) {
-    total += drink.caffeinePer * drink.count;
+    totalCaffeine += drink.caffeinePer * drink.count;
   }
 
-  document.getElementById('caffeine').value = total;
+  document.getElementById('caffeine').value = totalCaffeine;
 }
 
 function predictSleepImpact() {
@@ -79,3 +80,23 @@ function getBackgroundColorByCaffeine(caffeine) {
 window.onload = function () {
   document.body.style.background = getBackgroundColorByCaffeine(0);
 };
+
+//リセットボタンの動作
+function resetForm() {
+  document.getElementById('coffee').value = 0;
+  document.getElementById('tea').value = 0;
+  document.getElementById('energy').value = 0;
+  document.getElementById('customName').value = '';
+  document.getElementById('customCaffeine').value = '';
+  document.getElementById('customCount').value = '';
+  document.getElementById('customDrinkList').innerHTML = '';
+  customDrinks = [];
+  totalCaffeine = 0;
+  document.getElementById('caffeine').value = totalCaffeine;
+  document.getElementById('age').value = '';
+  document.getElementById('weight').value = '';
+  document.getElementById('result').innerHTML = '';
+
+  document.body.classList.remove("flash-warning");
+  document.body.style.background = getBackgroundColorByCaffeine(0);
+}
