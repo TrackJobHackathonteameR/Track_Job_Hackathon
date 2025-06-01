@@ -15,6 +15,17 @@
     <label>紅茶（45mg/杯）: <input type="number" id="tea" value="0" /></label>
     <label>エナジードリンク（80mg/缶）: <input type="number" id="energy" value="0" /></label>
   </div>
+
+  <!-- ✅ 追加飲み物の入力 -->
+  <div class="custom-drink-form">
+    <input type="text" id="customName" placeholder="飲み物名 (例: 緑茶)" />
+    <input type="number" id="customCaffeine" placeholder="1杯のカフェイン量 (mg)" />
+    <input type="number" id="customCount" placeholder="杯数" />
+    <button type="button" onclick="addCustomDrink()">飲み物を追加</button>
+  </div>
+
+  <ul id="customDrinkList"></ul>
+
   <button type="button" onclick="calculateCaffeine()">合計カフェインを反映</button>
 </fieldset>
   <label for="caffeine">カフェイン摂取量 (mg):</label>

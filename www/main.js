@@ -1,10 +1,42 @@
+let customDrinks = [];
+
+function addCustomDrink() {
+  const name = document.getElementById('customName').value;
+  const caffeinePer = parseFloat(document.getElementById('customCaffeine').value);
+  const count = parseInt(document.getElementById('customCount').value);
+
+  if (!name || isNaN(caffeinePer) || isNaN(count)) {
+    alert("正しくすべての項目を入力してください。");
+    return;
+  }
+
+  customDrinks.push({ name, caffeinePer, count });
+
+  // 表示更新
+  const list = document.getElementById('customDrinkList');
+  const item = document.createElement('li');
+  item.textContent = `${name}（${caffeinePer}mg × ${count}杯）`;
+  list.appendChild(item);
+
+  // 入力初期化
+  document.getElementById('customName').value = "";
+  document.getElementById('customCaffeine').value = "";
+  document.getElementById('customCount').value = "";
+}
+
 function calculateCaffeine() {
   const coffee = parseInt(document.getElementById('coffee').value) || 0;
   const tea = parseInt(document.getElementById('tea').value) || 0;
   const energy = parseInt(document.getElementById('energy').value) || 0;
 
-  const caffeineTotal = (coffee * 90) + (tea * 45) + (energy * 80);
-  document.getElementById('caffeine').value = caffeineTotal;
+  let total = (coffee * 90) + (tea * 45) + (energy * 80);
+
+  // カスタム飲料の分を加算
+  for (const drink of customDrinks) {
+    total += drink.caffeinePer * drink.count;
+  }
+
+  document.getElementById('caffeine').value = total;
 }
 
 function predictSleepImpact() {

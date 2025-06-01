@@ -59,3 +59,17 @@ fieldset label {
   width: 100%;
   box-sizing: border-box;
 }
+
+.custom-drink-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#customDrinkList {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  list-style: disc;
+  font-size: 0.9rem;
+}
