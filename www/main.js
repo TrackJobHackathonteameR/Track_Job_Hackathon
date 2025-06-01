@@ -1,4 +1,13 @@
-    function predictSleepImpact() {
+function calculateCaffeine() {
+  const coffee = parseInt(document.getElementById('coffee').value) || 0;
+  const tea = parseInt(document.getElementById('tea').value) || 0;
+  const energy = parseInt(document.getElementById('energy').value) || 0;
+
+  const caffeineTotal = (coffee * 90) + (tea * 45) + (energy * 80);
+  document.getElementById('caffeine').value = caffeineTotal;
+}
+
+function predictSleepImpact() {
       const caffeine = parseFloat(document.getElementById('caffeine').value);
       const age = parseFloat(document.getElementById('age').value);
       const weight = parseFloat(document.getElementById('weight').value);
@@ -16,4 +25,5 @@
 
       const roundedDelay = Math.max(0, sleepDelay.toFixed(1));
       resultDiv.innerHTML = `おおよそ ${roundedDelay} 時間後に眠れる可能性があります。`;
-    }
+}
+

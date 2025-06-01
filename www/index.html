@@ -8,7 +8,15 @@
 </head>
 <body>
   <h1>カフェイン影響予測アプリ</h1>
-  
+<fieldset>
+  <legend>飲料別のカフェイン摂取量</legend>
+  <div class="drink-row">
+    <label>コーヒー（90mg/杯）: <input type="number" id="coffee" value="0" /></label>
+    <label>紅茶（45mg/杯）: <input type="number" id="tea" value="0" /></label>
+    <label>エナジードリンク（80mg/缶）: <input type="number" id="energy" value="0" /></label>
+  </div>
+  <button type="button" onclick="calculateCaffeine()">合計カフェインを反映</button>
+</fieldset>
   <label for="caffeine">カフェイン摂取量 (mg):</label>
   <input type="number" id="caffeine" placeholder="例: 150" />
 
