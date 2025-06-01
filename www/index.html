@@ -13,21 +13,27 @@
 <fieldset>
   <div class="drink-row">
     <label>コーヒー（90mg/杯）:</label>
-    <button type="button" onclick="changeDrinkAmount('coffee', -1)">-</button>
-    <input type="number" id="coffee" value="0" readonly />
-    <button type="button" onclick="changeDrinkAmount('coffee', 1)">+</button>
+    <div class="controls">
+      <button type="button" onclick="changeDrinkAmount('coffee', -1)">-</button>
+      <input type="number" id="coffee" value="0" readonly />
+      <button type="button" onclick="changeDrinkAmount('coffee', 1)">+</button>
+      </div>
   </div>
   <div class="drink-row">
     <label>紅茶（45mg/杯）:</label>
-    <button type="button" onclick="changeDrinkAmount('tea', -1)">-</button>
-    <input type="number" id="tea" value="0" readonly />
-    <button type="button" onclick="changeDrinkAmount('tea', 1)">+</button>
+    <div class="controls">
+      <button type="button" onclick="changeDrinkAmount('tea', -1)">-</button>
+      <input type="number" id="tea" value="0" readonly />
+      <button type="button" onclick="changeDrinkAmount('tea', 1)">+</button>
+    </div>
   </div>
   <div class="drink-row">
     <label>エナジードリンク（80mg/缶）:</label>
-    <button type="button" onclick="changeDrinkAmount('energy', -1)">-</button>
-    <input type="number" id="energy" value="0" readonly />
-    <button type="button" onclick="changeDrinkAmount('energy', 1)">+</button>
+    <div class="controls">
+      <button type="button" onclick="changeDrinkAmount('energy', -1)">-</button>
+      <input type="number" id="energy" value="0" readonly />
+      <button type="button" onclick="changeDrinkAmount('energy', 1)">+</button>
+    </div>
   </div>
   
   <!-- カスタムドリンク表示エリア -->
