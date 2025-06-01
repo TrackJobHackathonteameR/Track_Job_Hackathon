@@ -95,7 +95,7 @@ function resetForm() {
   document.getElementById('result').innerHTML = '';
 
   document.body.classList.remove("flash-warning");
-  document.body.style.background = getBackgroundColorByCaffeine(0);
+  
 
   renderCustomDrinks();     // カスタム表示をちゃんと再描画（空になる）
   calculateCaffeine();      // カフェイン量を0に更新
