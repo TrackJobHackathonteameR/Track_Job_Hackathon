@@ -138,3 +138,12 @@ function updateCustomCount(index, delta) {
   customDrinks[index].count = Math.max(0, customDrinks[index].count + delta);
   renderCustomDrinks(); // 再表示
 }
+
+function toggleCustomForm() {
+  const form = document.getElementById('customFormContainer');
+  if (form.style.display === 'none') {
+    form.style.display = 'block';
+  } else {
+    form.style.display = 'none';
+  }
+}

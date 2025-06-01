@@ -40,17 +40,22 @@
 
   <div id="customDrinkList"></div>
 
+  
   <!-- 追加飲み物の入力 -->
+  <!-- 表示切り替えボタン -->
+  <button onclick="toggleCustomForm()">カスタムドリンクを追加</button>
 
-  <label>カスタムドリンクの追加</label>
-  <label>
-    ドリンク名: <input type="text" id="customName" placeholder="例: 抹茶ラテ" />
-  </label>
-  <label>
-    カフェイン量（mg/杯）: <input type="number" id="customCaffeine" placeholder="例: 60" />
-  </label>
-  <button type="button" onclick="addCustomDrink()">ドリンクを追加</button>
-
+  <!-- カスタムドリンク入力フォーム（最初は非表示） -->
+  <div id="customFormContainer" style="display: none; margin-top: 10px;">
+    <label>カスタムドリンクの追加</label>
+    <label>
+      ドリンク名: <input type="text" id="customName" placeholder="例: 抹茶ラテ" />
+    </label>
+    <label>
+      カフェイン量（mg/杯）: <input type="number" id="customCaffeine" placeholder="例: 60" />
+    </label>
+    <button type="button" onclick="addCustomDrink()">ドリンクを追加</button>
+  </div>
 </fieldset>
   <label for="caffeine">カフェイン摂取量 (mg):</label>
   <input type="number" id="caffeine" placeholder="0" readonly/>
