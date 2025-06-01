@@ -2,28 +2,26 @@ let customDrinks = [];
 totalCaffeine = 0;
 
 function addCustomDrink() {
-  const name = document.getElementById('customName').value;
+  const name = document.getElementById('customName').value.trim();
   const caffeinePer = parseFloat(document.getElementById('customCaffeine').value);
-  const count = parseInt(document.getElementById('customCount').value);
 
-  if (!name || isNaN(caffeinePer) || isNaN(count)) {
-    alert("正しくすべての項目を入力してください。");
+  if (!name || isNaN(caffeinePer) || caffeinePer <= 0) {
+    alert("正しいドリンク名とカフェイン量を入力してください。");
     return;
   }
 
-  customDrinks.push({ name, caffeinePer, count });
+  // 一意のIDをつける（Date.nowベース）
+  const id = 'custom_' + Date.now();
+  const drink = { id, name, caffeinePer, count: 0 };
+  customDrinks.push(drink);
 
-  // 表示更新
-  const list = document.getElementById('customDrinkList');
-  const item = document.createElement('li');
-  item.textContent = `${name}（${caffeinePer}mg × ${count}杯）`;
-  list.appendChild(item);
+  renderCustomDrinks();
 
-  // 入力初期化
-  document.getElementById('customName').value = "";
-  document.getElementById('customCaffeine').value = "";
-  document.getElementById('customCount').value = "";
+  // 入力リセット
+  document.getElementById('customName').value = '';
+  document.getElementById('customCaffeine').value = '';
 }
+
 
 function calculateCaffeine() {
   const coffee = parseInt(document.getElementById('coffee').value) || 0;
@@ -106,4 +104,29 @@ function changeDrinkAmount(id, delta) {
   let current = parseInt(input.value) || 0;
   current = Math.max(0, current + delta); // マイナスにならないように
   input.value = current;
+}
+
+function renderCustomDrinks() {
+  const list = document.getElementById('customDrinkList');
+  list.innerHTML = ''; // 一旦クリア
+
+  customDrinks.forEach((drink, index) => {
+    const item = document.createElement('div');
+    item.className = 'drink-row';
+    item.innerHTML = `
+      <span>${drink.name}（${drink.caffeinePer}mg/杯）</span>
+      <button onclick="updateCustomCount(${index}, -1)">−</button>
+      <input type="number" id="energy" value=${drink.count} readonly />
+      <button onclick="updateCustomCount(${index}, 1)">＋</button>
+    `;
+    list.appendChild(item);
+  });
+
+  calculateCaffeine(); // 表示時に合計再計算
+}
+
+function updateCustomCount(index, delta) {
+  if (!customDrinks[index]) return;
+  customDrinks[index].count = Math.max(0, customDrinks[index].count + delta);
+  renderCustomDrinks(); // 再表示
 }

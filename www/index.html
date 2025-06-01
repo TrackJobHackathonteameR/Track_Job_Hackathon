@@ -29,16 +29,22 @@
     <input type="number" id="energy" value="0" readonly />
     <button type="button" onclick="changeDrinkAmount('energy', 1)">+</button>
   </div>
+  
+  <!-- カスタムドリンク表示エリア -->
+
+  <div id="customDrinkList"></div>
 
   <!-- 追加飲み物の入力 -->
-  <div class="custom-drink-form">
-    <input type="text" id="customName" class="custom-input" placeholder="飲み物名（例：緑茶）" />
-    <input type="number" id="customCaffeine" class="custom-input" placeholder="1杯のカフェイン量 (mg)" />
-    <input type="number" id="customCount" class="custom-input" placeholder="杯数" />
-    <button type="button" onclick="addCustomDrink()">飲み物を追加</button>
-  </div>
 
-  <ul id="customDrinkList"></ul>
+  <label>カスタムドリンクの追加</label>
+  <label>
+    ドリンク名: <input type="text" id="customName" placeholder="例: 抹茶ラテ" />
+  </label>
+  <label>
+    カフェイン量（mg/杯）: <input type="number" id="customCaffeine" placeholder="例: 60" />
+  </label>
+  <button type="button" onclick="addCustomDrink()">ドリンクを追加</button>
+
 
   <button type="button" onclick="calculateCaffeine()">合計カフェインを反映</button>
 </fieldset>
