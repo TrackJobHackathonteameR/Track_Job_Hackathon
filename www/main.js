@@ -45,13 +45,13 @@ function predictSleepImpact() {
       const resultDiv = document.getElementById('result');
 
       // 背景色をカフェイン量に応じて変更
-      const bgColor = getBackgroundColorByCaffeine(caffeine);
-      document.body.style.background = bgColor;
-      if (caffeine >= 400) {
-      document.body.classList.add("flash-warning");
-      } else {
-      document.body.classList.remove("flash-warning");
-      }
+      //const bgColor = getBackgroundColorByCaffeine(caffeine);
+      //document.body.style.background = bgColor;
+      //if (caffeine >= 400) {
+      //document.body.classList.add("flash-warning");
+      //} else {
+      //document.body.classList.remove("flash-warning");
+      //}
       if (isNaN(caffeine) || isNaN(age) || isNaN(weight)) {
         resultDiv.innerHTML = "すべての項目を正しく入力してください。";
         return;
