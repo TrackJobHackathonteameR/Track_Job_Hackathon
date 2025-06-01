@@ -18,14 +18,16 @@ input {
 	font-size: 1rem;
 }
 button {
-	margin-top: 2rem;
+	margin-top: 1rem;
 	padding: 0.75rem 1.5rem;
 	font-size: 1rem;
 	background-color: #4caf50;
 	color: white;
 	border: none;
 	cursor: pointer;
+  width: 100%;
 }
+
 #result {
 	margin-top: 2rem;
 	padding: 1rem;
@@ -69,7 +71,17 @@ fieldset label {
 
 #customDrinkList {
   margin-top: 1rem;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   list-style: disc;
   font-size: 0.9rem;
 }
+
+/* カスタムドリンク入力フォーム用スタイル */
+.custom-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
