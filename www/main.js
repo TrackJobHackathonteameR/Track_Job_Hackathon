@@ -124,6 +124,7 @@ function renderCustomDrinks() {
       <input type="number" id="energy" value=${drink.count} readonly />
       <button onclick="updateCustomCount(${index}, 1)">＋</button>
     `;
+
     list.appendChild(item);
   });
 
