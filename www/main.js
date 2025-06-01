@@ -100,3 +100,10 @@ function resetForm() {
   document.body.classList.remove("flash-warning");
   document.body.style.background = getBackgroundColorByCaffeine(0);
 }
+
+function changeDrinkAmount(id, delta) {
+  const input = document.getElementById(id);
+  let current = parseInt(input.value) || 0;
+  current = Math.max(0, current + delta); // マイナスにならないように
+  input.value = current;
+}
